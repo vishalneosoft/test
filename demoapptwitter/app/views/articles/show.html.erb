@@ -13,7 +13,9 @@
 <strong>Comment:</strong>
 <%= f.body %>
 <br>
+<% if f.user_id == current_user.id %>
 <%= link_to 'Delete', [f.article, f],method: :delete,data: {confirm: 'Are you sure'} %>
+<% end %>
 <% end %>
 
 <h1>Comment</h1>
