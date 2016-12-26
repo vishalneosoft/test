@@ -1,0 +1,32 @@
+<h1>Article</h1>
+<strong>Title:</strong>
+<%= @article.title %><br>
+<strong>Body:</strong>
+<%= @article.body %>
+<br>
+<% if @article.comments.present? %>
+<h1>Comments</h1>
+<% end %>
+<% @article.comments.each do |f| %>
+<strong>Name:</strong>
+<%= f.commenter %><br>
+<strong>Comment:</strong>
+<%= f.body %>
+<% end %>
+
+<h1>Comment</h1>
+<%= form_for([@article,@article.comments.build]) do |f| %>
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :commenter %>
+</p>
+<p>
+  <%= f.label :comment %><br>
+  <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%= link_to 'Home', articles_path%>
+<%= link_to 'Edit', edit_article_path %>
