@@ -12,6 +12,8 @@
 <%= f.commenter %><br>
 <strong>Comment:</strong>
 <%= f.body %>
+<br>
+<%= link_to 'Delete', [f.article, f],method: :delete,data: {confirm: 'Are you sure'} %>
 <% end %>
 
 <h1>Comment</h1>
